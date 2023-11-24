@@ -66,7 +66,7 @@ def create_ascii_grid(grid, path, start, goal):
     return "\n".join("".join(row) for row in ascii_grid)
 
 # Initialize grid
-grid_size = 300
+grid_size = 290
 grid = [[Node(i, j) for j in range(grid_size)] for i in range(grid_size)]
 start = grid[0][0]
 
