@@ -15,6 +15,7 @@ class Node:
         return self.f < other.f
 
 
+
 def heuristic(node, goal):
     return abs(node.x - goal.x) + abs(node.y - goal.y)
 
