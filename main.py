@@ -1,6 +1,7 @@
 import heapq
 import random
 
+
 class Node:
     def __init__(self, x, y):
         self.x = x
@@ -13,8 +14,10 @@ class Node:
     def __lt__(self, other):
         return self.f < other.f
 
+
 def heuristic(node, goal):
     return abs(node.x - goal.x) + abs(node.y - goal.y)
+
 
 def get_neighbors(node, grid):
     neighbors = []
@@ -23,6 +26,7 @@ def get_neighbors(node, grid):
         if 0 <= nx < len(grid) and 0 <= ny < len(grid[0]):
             neighbors.append(grid[nx][ny])
     return neighbors
+
 
 def a_star(start, goal, grid):
     open_set = []
@@ -48,12 +52,14 @@ def a_star(start, goal, grid):
 
     return None
 
+
 def reconstruct_path(node):
     path = []
     while node:
         path.append((node.x, node.y))
         node = node.parent
     return path[::-1]
+
 
 def create_ascii_grid(grid, path, start, goal):
     ascii_grid = [["." for _ in range(len(grid[0]))] for _ in range(len(grid))]
@@ -65,8 +71,9 @@ def create_ascii_grid(grid, path, start, goal):
 
     return "\n".join("".join(row) for row in ascii_grid)
 
+
 # Initialize grid
-grid_size = 290
+grid_size = 299
 grid = [[Node(i, j) for j in range(grid_size)] for i in range(grid_size)]
 start = grid[0][0]
 
